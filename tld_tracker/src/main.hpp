@@ -79,15 +79,15 @@ class Main
 			np.param("correctBB", correctBB, false);
 
 			pub1 = n.advertise<tld_msgs::BoundingBox>(
-                    "tld_tracked_object", 1000, true);
+                    "tld_tracked_object", 10, true);
 			pub2 = n.advertise<std_msgs::Float32>(
-                    "tld_fps", 1000, true);
+                    "tld_fps", 10, true);
 			sub1 = n.subscribe(
-                    "image", 1000, &Main::imageReceivedCB, this);
+                    "image", 10, &Main::imageReceivedCB, this);
 			sub2 = n.subscribe(
-                    "bounding_box", 1000, &Main::targetReceivedCB, this);
+                    "bounding_box", 10, &Main::targetReceivedCB, this);
 			sub3 = n.subscribe(
-                    "cmds", 1000, &Main::cmdReceivedCB, this);
+                    "cmds", 10, &Main::cmdReceivedCB, this);
 
 			semaphore.lock();
 		}
